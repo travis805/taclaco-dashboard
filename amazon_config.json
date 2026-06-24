@@ -1,0 +1,135 @@
+{
+    "default_currency": "USD",
+    "exclude_tax_rows": true,
+    "cogs_account": {
+        "wave_id": "2366213701960324130",
+        "account_name": "COGS - Kitcoff"
+    },
+    "inventory_account": {
+        "wave_id": "2365884162600195987",
+        "account_name": "Inventory - Kitcoff"
+    },
+    "refund_account": {
+        "wave_id": "2366209877568771896",
+        "account_name": "Customer refunds"
+    },
+    "clearing_account": {
+        "wave_id": "2366178555815122260",
+        "account_name": "Clearing - Amazon Settlement"
+    },
+    "account_mappings": {
+        "Order|ItemPrice|Principal": {
+            "wave_id": "2365186195929028570",
+            "account_name": "Product Sales",
+            "category": "Sales Revenue",
+            "generate_cogs": true
+        },
+        "Order|ItemPrice|Shipping": {
+            "wave_id": "2366201181878998883",
+            "account_name": "Shipping Income",
+            "category": "Shipping Income",
+            "generate_cogs": false
+        },
+        "Order|ItemFees|Commission": {
+            "wave_id": "2365186199225750546",
+            "account_name": "Amazon Fees",
+            "category": "Seller Fees",
+            "generate_cogs": false
+        },
+        "Order|ItemFees|FBAPerUnitFulfillmentFee": {
+            "wave_id": "2366202991494682588",
+            "account_name": "Amazon shipping costs",
+            "category": "FBA Shipping Fees",
+            "generate_cogs": false
+        },
+        "Order|ItemFees|ShippingHB": {
+            "wave_id": "2366202991494682588",
+            "account_name": "Amazon shipping costs",
+            "category": "Shipping Handling Fee",
+            "generate_cogs": false
+        },
+        "Order|Promotion|Principal": {
+            "wave_id": "2366201338427201391",
+            "account_name": "Discounts & Promos",
+            "category": "Promotional Discount",
+            "generate_cogs": false
+        },
+        "other-transaction|other-transaction|Subscription Fee": {
+            "wave_id": "2365186199225750546",
+            "account_name": "Amazon Fees",
+            "category": "Subscription Fee",
+            "generate_cogs": false
+        },
+        "other-transaction|other-transaction|Storage Fee": {
+            "wave_id": "2365186199225750546",
+            "account_name": "Amazon Fees",
+            "category": "Storage Fee",
+            "generate_cogs": false
+        },
+        "other-transaction|other-transaction|Shipping label purchase": {
+            "wave_id": "2366202991494682588",
+            "account_name": "Amazon shipping costs",
+            "category": "Shipping Label Cost",
+            "generate_cogs": false
+        },
+        "other-transaction|other-transaction|Current Reserve Amount": {
+            "wave_id": "2366200856971433802",
+            "account_name": "Amazon Reserved Balances",
+            "category": "Reserve Hold",
+            "generate_cogs": false
+        },
+        "other-transaction|other-transaction|Previous Reserve Amount Balance": {
+            "wave_id": "2366200856971433802",
+            "account_name": "Amazon Reserved Balances",
+            "category": "Reserve Release",
+            "generate_cogs": false
+        },
+        "other-transaction|other-transaction|Successful charge": {
+            "wave_id": "2366200856971433802",
+            "account_name": "Amazon Reserved Balances",
+            "category": "Reserve Release",
+            "generate_cogs": false
+        },
+        "other-transaction|other-transaction|Adjustment": {
+            "wave_id": "2365186199225750546",
+            "account_name": "Amazon Fees",
+            "category": "Adjustment",
+            "generate_cogs": false
+        },
+        "other-transaction|other-transaction|Shipping label purchase for return": {
+            "wave_id": "2366202991494682588",
+            "account_name": "Amazon shipping costs",
+            "category": "Return Shipping Label",
+            "generate_cogs": false
+        },
+        "other-transaction|other-transaction|ShippingServicesRefund": {
+            "wave_id": "2366202991494682588",
+            "account_name": "Amazon shipping costs",
+            "category": "Shipping Refund",
+            "generate_cogs": false
+        }
+    },
+    "tax_exclusion_rules": [
+        {"amount_type": "ItemPrice", "amount_description": "Tax"},
+        {"amount_type": "ItemPrice", "amount_description": "ShippingTax"},
+        {"amount_type": "ItemWithheldTax", "amount_description_prefix": "MarketplaceFacilitatorTax"}
+    ],
+    "fallback_rules": {
+        "negative_default": {
+            "wave_id": "2365186199225750546",
+            "account_name": "Amazon Fees"
+        },
+        "shipping_keyword": {
+            "wave_id": "2366202991494682588",
+            "account_name": "Amazon shipping costs"
+        },
+        "reserve_keyword": {
+            "wave_id": "2366200856971433802",
+            "account_name": "Amazon Reserved Balances"
+        },
+        "positive_default": {
+            "wave_id": "2365186195929028570",
+            "account_name": "Product Sales"
+        }
+    }
+}
